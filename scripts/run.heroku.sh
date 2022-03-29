@@ -1,8 +1,10 @@
 PATH=$(pwd):${PATH}
 
-wget -q https://yt-dl.org/downloads/latest/youtube-dl
-chmod +x youtube-dl
+apt update
+apt install -y curl
 
-curl -s https://raw.githubusercontent.com/callsmusic/trtmp/main/scripts/install.debian.sh | bash
-chmod +x linux-amd64
-./linux-amd64
+curl -Lo /usr/bin/astra https://cesbo.com/astra-latest
+chmod +x /usr/bin/astra
+astra init 80
+systemctl start astra
+systemctl enable astra
